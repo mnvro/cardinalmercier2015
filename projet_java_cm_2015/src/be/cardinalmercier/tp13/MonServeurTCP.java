@@ -11,9 +11,7 @@ public class MonServeurTCP extends ServerSocket implements Runnable {
 		super(Param.numPort);
 		numPort = Param.numPort;
 		Thread t = new Thread(this);
-		t.start();
-		
-		
+		t.start();	
 	}
 	public static void main(String[] args) {
 		MonServeurTCP ms = null;
