@@ -22,10 +22,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
-public class MaJFrameServeur extends JFrame {
+public class MaJFrameServeur extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 	private JTextField jTextFieldNumPort;
+	public jPanelServeur2 jp2; // TOTO private
 
 	/**
 	 * Launch the application.
@@ -61,16 +62,7 @@ public class MaJFrameServeur extends JFrame {
 		contentPane.add(jPanelBas, BorderLayout.SOUTH);
 		
 		JButton btnDmarrerLeServeur = new JButton("D\u00E9marrer le serveur");
-		btnDmarrerLeServeur.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					MonServeur ms = new MonServeur(Integer.parseInt(jTextFieldNumPort.getText()));
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		});
+		btnDmarrerLeServeur.addActionListener(this);
 		jPanelBas.add(btnDmarrerLeServeur);
 		
 		JPanel jPanelCentre = new JPanel();
@@ -98,6 +90,19 @@ public class MaJFrameServeur extends JFrame {
 		jTextFieldNumPort.setText(Param.numPort+"");
 		jPanelCentre.add(jTextFieldNumPort, gbc_jTextFieldNumPort);
 		jTextFieldNumPort.setColumns(10);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		jp2 = new jPanelServeur2();
+		this.setContentPane(jp2);
+		try {
+			MonServeur ms = new MonServeur(Integer.parseInt(jTextFieldNumPort.getText()));
+		} catch (IOException ioe) {
+			// TODO Auto-generated catch block
+			ioe.printStackTrace();
+		}
+		
 	}
 
 }

@@ -6,6 +6,7 @@ import javax.swing.JTextArea;
 import java.awt.GridBagConstraints;
 
 public class jPanelServeur2 extends JPanel {
+	public JTextArea jTextAreaLog; // TODO mettre en private
 
 	/**
 	 * Create the panel.
@@ -18,7 +19,7 @@ public class jPanelServeur2 extends JPanel {
 		gridBagLayout.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
-		JTextArea jTextAreaLog = new JTextArea();
+		jTextAreaLog = new JTextArea();
 		GridBagConstraints gbc_jTextAreaLog = new GridBagConstraints();
 		gbc_jTextAreaLog.fill = GridBagConstraints.BOTH;
 		gbc_jTextAreaLog.gridx = 0;
